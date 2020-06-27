@@ -312,9 +312,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "loadScripts",
         value: function loadScripts() {
           // This array contains all the files/CDNs 
-          var dynamicScripts = [// '../../assets/three.min.js',
-          'https://threejs.org/build/three.js', '../../assets/TrackballControls.js', // '../../assets/Tween.min.js',
-          'https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js', '../../assets/js/stl-loader.js', '../../assets/js/loader.js?v=201805160016', '../../assets/js/stl.js', '../../assets/demo.js'];
+          var dynamicScripts = ['assets/js/tracking/build/tracking-min.js', 'assets/js/tracking/build/data/face-min.js', 'assets/js/dat.gui/build/dat.gui.min.js', // '../../assets/three.min.js',
+          'https://threejs.org/build/three.js', 'assets/TrackballControls.js', // '../../assets/Tween.min.js',
+          'https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js', 'assets/js/stl-loader.js', 'assets/js/loader.js?v=201805160016', 'assets/js/stl.js', 'assets/demo.js'];
 
           for (var i = 0; i < dynamicScripts.length; i++) {
             var node = document.createElement('script');

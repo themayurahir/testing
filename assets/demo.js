@@ -1,10 +1,10 @@
 var isMobile, canvas, video, tracker, quizJSON, quizData = null;
-  console.log('Guess where I am');
+  // console.log('Guess where I am');
   window.onload = function () {
-    console.log('I am in');
+    // console.log('I am in');
     video = document.getElementById('video');
     canvas = document.getElementById('canvas-track');
-    isMobile = true//window.mobilecheck();
+    isMobile = window.mobilecheck();
 
     console.log(isMobile);
 
@@ -34,7 +34,7 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
       console.log(canvas.height);
     } else {
       //video.src = 'assets/video/video.webm';
-    //   alert("Visit this on mobile, pls");
+      alert("Visit this on mobile, pls");
     //   window.location.href = "desktop.html";
     }
 
@@ -42,7 +42,7 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
     document.getElementById('demo-container').style.height = window.innerHeight + "px";
 
     if (window.location.hash == '#debug')
-      video.src = '../../assets/video/video.webm';
+      video.src = 'assets/video/video.webm';
   }
 
   function initTracker(isMobile, canvas) {
@@ -193,9 +193,9 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
 
   document.getElementById('start').addEventListener('click', function (e) {
     initQuiz();
-    var audio = new Audio('../../assets/audio/hufflepuff/uhm.mp3').play();
+    var audio = new Audio('assets/audio/hufflepuff/uhm.mp3').play();
     setTimeout(function () {
-      var audio = new Audio('../../assets/audio/hufflepuff/where-should-i-put-you.mp3').play();
+      var audio = new Audio('assets/audio/hufflepuff/where-should-i-put-you.mp3').play();
     }, 600);
   });
 
@@ -269,7 +269,7 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
       quizData["actualStepId"] = quizData["actualStepId"] + 1;
 
       if (getRandomInt(1, 99) % 5 == 0) {
-        var audio = new Audio('../../assets/audio/hufflepuff/uhm.mp3').play();
+        var audio = new Audio('assets/audio/hufflepuff/uhm.mp3').play();
       }
 
       if (quizData["actualStepId"] > 0 && quizData["actualStepId"] % 2 == 0 && quizData["audioCounter"] <= 2) {
@@ -281,13 +281,13 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
             houseName = key;
           }
         }
-        var audio = new Audio('../../assets/audio/' + houseName + '/' + quizData["audioResources"][houseName][quizData["audioCounter"]]).play();
+        var audio = new Audio('assets/audio/' + houseName + '/' + quizData["audioResources"][houseName][quizData["audioCounter"]]).play();
         quizData["audioCounter"]++;
       }
 
       if (quizData["actualStepId"] == 6) {
         setTimeout(function () {
-          var audio = new Audio('../../assets/audio/hufflepuff/head.mp3').play();
+          var audio = new Audio('assets/audio/hufflepuff/head.mp3').play();
         }, 2000);
       }
 
@@ -320,11 +320,11 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
     document.getElementsByClassName('house')[0].style.display = "block";
     document.getElementsByClassName('house-name')[0].innerHTML = houseName;
     document.getElementsByClassName('house-name')[0].className += " " + houseName.toLowerCase();
-    document.getElementById('house-img').src = "../../assets/img/" + houseName.toLocaleLowerCase() + ".png";
+    document.getElementById('house-img').src = "assets/img/" + houseName.toLocaleLowerCase() + ".png";
 
-    var audio = new Audio('../../assets/audio/' + houseName.toLowerCase() + '/that-be.mp3').play();
+    var audio = new Audio('assets/audio/' + houseName.toLowerCase() + '/that-be.mp3').play();
     setTimeout(function () {
-      var audio = new Audio('../../assets/audio/' + houseName.toLowerCase() + '.mp3').play();
+      var audio = new Audio('assets/audio/' + houseName.toLowerCase() + '.mp3').play();
     }, 1200);
 
     document.getElementById('tw-link').setAttribute('href', 'http://twitter.com/share?text=Discover your Hogwarts house!&url=' + window.location.href);
@@ -368,7 +368,7 @@ var isMobile, canvas, video, tracker, quizJSON, quizData = null;
   function loadJSON(callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', '../../assets/quiz.json', true);
+    xobj.open('GET', 'assets/quiz.json', true);
     xobj.onreadystatechange = function () {
       if (xobj.readyState == 4 && xobj.status == "200") {
         callback(xobj.responseText);
